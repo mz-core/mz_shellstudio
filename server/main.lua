@@ -10,7 +10,7 @@ local function result(ok, payload, errorCode)
 end
 
 local function loadStore()
-  local raw = LoadResourceFile(RESOURCE, STORE_PATH)
+  local raw = LoadResourceFile(RESOURCE, 'data/projects.json')
   if not raw or raw == '' then return end
   local ok, decoded = pcall(json.decode, raw)
   if ok and type(decoded) == 'table' and tonumber(decoded.schemaVersion) == 1 and type(decoded.projects) == 'table' then
